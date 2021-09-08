@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 54e159d3356cea14996fb2dc32d85269
+guid: 6a8750b53b25f864085468095755beb9
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -11,7 +11,7 @@ ModelImporter:
     second: //RootNode
   - first:
       21: 2100000
-    second: MainMaterial
+    second: material_world_pallette
   - first:
       23: 2300000
     second: //RootNode
@@ -20,13 +20,18 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: ForestTreePineShort
-  externalObjects: {}
+    second: mod_prop_animal_chicken
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_world_pallette
+    second: {fileID: 2100000, guid: b16e243dcccee474b89f5da90bfcf8ee, type: 2}
   materials:
     materialImportMode: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -52,18 +57,18 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 1.2
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -87,7 +92,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -103,7 +108,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.005
+    globalScale: 0.012
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

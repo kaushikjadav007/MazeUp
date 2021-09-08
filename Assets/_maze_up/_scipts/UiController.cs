@@ -11,13 +11,17 @@ public class UiController : MonoBehaviour
     public Button m_restart;
     [Space]
     public TextMeshProUGUI m_count_text;
+    public TextMeshProUGUI m_score_text;
 
     [Header("Script holder")]
     public ScriptRefrenceHolder m_script_ref;
+    public Valueholder m_value_holder;
 
     private void OnEnable()
     {
         m_script_ref.m_ui_controller = GetComponent<UiController>();
+        m_value_holder.m_score_text = m_score_text;
+        m_value_holder.m_score = 0;
 
         m_play.onClick.AddListener(_PlayMethod);
         m_restart.onClick.AddListener(_RestartMethod);
@@ -63,6 +67,9 @@ public class UiController : MonoBehaviour
         m_count_text.gameObject.SetActive(false);
         yield return new WaitForEndOfFrame();
         m_script_ref.m_player_Controller.m_input = true;
+        m_value_holder.m_score = 0;
+        m_score_text.text = "";
+        m_score_text.gameObject.SetActive(true);
     }
 
 

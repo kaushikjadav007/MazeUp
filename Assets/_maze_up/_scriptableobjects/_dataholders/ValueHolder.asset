@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e03f0a52e68a2341bc9ac9cb4079fb3, type: 3}
   m_Name: ValueHolder
   m_EditorClassIdentifier: 
-  m_player_position: {x: 0, y: 0, z: 0}
-  m_collected_coin_count: 0
+  m_player_position: {x: 74, y: 67.25, z: 59}
+  m_score: 135
+  m_score_text: {fileID: 0}

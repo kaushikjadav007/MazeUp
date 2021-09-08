@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour
     [Header("Jump Value")]
     public Vector3 m_right_jump_value;
     [Space]
-    public Animator m_chiken_anim;
-    [Space]
     public int m_platform_gen_count=3;
     [Space]
     public bool m_input;
@@ -46,22 +44,6 @@ public class PlayerController : MonoBehaviour
         m_screenwidth = Screen.width / 2;
 
         m_rb = gameObject.GetComponent<Rigidbody>();
-
-        //Rotate Acording To InitialDirection
-        m_temp_rotation = transform.eulerAngles;
-
-
-        if (m_script_ref.m_platform_controller.m_initial_direction == 0)
-        {
-            m_temp_rotation.y = 0f;
-        }
-        else
-        {
-            m_temp_rotation.y = -90f;
-        }
-
-        transform.eulerAngles = m_temp_rotation;
-
     }
 
     // Update is called once per frame
@@ -170,7 +152,6 @@ public class PlayerController : MonoBehaviour
         m_value_holder.m_player_position = transform.position;
 
         m_grounded = false;
-        m_chiken_anim.SetBool("Head", true);
 
         if (m_right)
         {
@@ -186,11 +167,11 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision m_col)
     {
 
-        if (m_col.collider.CompareTag("Platform"))
+        if (m_col.collider.CompareTag("Platform")&& !m_grounded)
         {
-            //Debug.Log(m_col.transform.position.y);
             m_grounded = true;
-            m_chiken_anim.SetBool("Head", false);
+            m_value_holder.m_score++;
+            m_value_holder._AddScore();
             m_rb.angularVelocity = Vector3.zero;
             m_rb.velocity = Vector3.zero;
 
@@ -203,9 +184,7 @@ public class PlayerController : MonoBehaviour
 
         if (m_col.collider.CompareTag("Dead"))
         {
-            //Debug.Log(m_col.transform.position.y);
             m_grounded = true;
-            m_chiken_anim.SetBool("Head", false);
             m_rb.angularVelocity = Vector3.zero;
             m_rb.velocity = Vector3.zero;
 

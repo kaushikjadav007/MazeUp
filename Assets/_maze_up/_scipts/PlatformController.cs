@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlatformController : MonoBehaviour
 {
     public List<GameObject> m_platform;
+    [Space]
+    public int m_test_platform;
+    public bool m_test;
 
     [Header("Platform Genration values")]
     public Vector3 m_pos;
@@ -15,10 +18,8 @@ public class PlatformController : MonoBehaviour
 
     private GameObject m_temp_go;
 
-    [Space]
-    public int m_initial_direction;
-    private int m_direction_decider;
 
+    private int m_direction_decider;
 
     [Space]
     public PlatformChunks m_last_chunk;
@@ -31,8 +32,7 @@ public class PlatformController : MonoBehaviour
     private void Start()
     {
         //Initial Setup
-        m_initial_direction = Random.Range(0, 2);
-        m_direction_decider = m_initial_direction;
+        m_direction_decider = Random.Range(0, 2);
         _Genrate();
 
     }
@@ -64,7 +64,16 @@ public class PlatformController : MonoBehaviour
 
         m_pos.y += 0.5f;
 
-        m_temp_go = Instantiate(m_platform[Random.Range(0,m_platform.Count)],m_pos, Quaternion.identity);
+        if (m_test)
+        {
+
+            m_temp_go = Instantiate(m_platform[m_test_platform],m_pos, Quaternion.identity);
+        }
+        else
+        {
+
+            m_temp_go = Instantiate(m_platform[Random.Range(0,m_platform.Count)],m_pos, Quaternion.identity);
+        }
         m_last_chunk = m_temp_go.GetComponent<PlatformChunks>();
 
         //Disable older platform
