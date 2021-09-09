@@ -80,7 +80,7 @@ public class PlatformController : MonoBehaviour
         //}
         //else
         //{
-        //    m_temp_go = _GetPlatform(Random.Range(0,m_count));
+        //    m_temp_go = _GetPlatform(Random.Range(0, m_count));
         //}
 
         m_temp_go = _GetPlatform(Random.Range(0, m_count));
@@ -112,10 +112,10 @@ public class PlatformController : MonoBehaviour
         //Genrate new platform
         m_genrated_obj = Instantiate(m_platform[m_id], m_pos, Quaternion.identity);
 
-#if UNITY_EDITOR
-        m_aaa++;
-        m_genrated_obj.name = m_aaa.ToString();
-#endif
+//#if UNITY_EDITOR
+//        m_aaa++;
+//        m_genrated_obj.name = m_aaa.ToString();
+//#endif
 
         m_temp_pooled_platform = new _PooledPlatforms();
         m_temp_pooled_platform.m_platform_obj = m_genrated_obj;

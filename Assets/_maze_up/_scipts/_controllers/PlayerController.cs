@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Dead");
             m_input = false;
             m_game_over._Raise();
+            gameObject.SetActive(false);
         }
 
         if (!m_grounded)
@@ -195,11 +196,21 @@ public class PlayerController : MonoBehaviour
 
         if (m_col.collider.CompareTag("Platform")&& !m_grounded)
         {
+            if (transform.position.y<m_col.transform.position.y) 
+            {
+                Debug.Log("Dead here");
+                m_input = false;
+                m_game_over._Raise();
+                gameObject.SetActive(false);
+                return;
+            }
+
             m_grounded = true;
             m_value_holder.m_score++;
             m_value_holder._AddScore();
             m_rb.angularVelocity = Vector3.zero;
             m_rb.velocity = Vector3.zero;
+
 
             m_center_pos = m_col.transform.position;
             m_center_pos.y += 0.5f;
@@ -220,6 +231,7 @@ public class PlayerController : MonoBehaviour
 
             m_input = false;
             m_game_over._Raise();
+            gameObject.SetActive(false);
             return;
         }
 
